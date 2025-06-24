@@ -28,3 +28,8 @@ jobs:
         run: |
           echo "Working Directory: $(pwd)"
           echo "Current Branch: $(git rev-parse --abbrev-ref HEAD)"
+
+      - name: Run Cocona Command
+        run: |
+          cd .\projects\CustomCLI\
+          dotnet run joker 
