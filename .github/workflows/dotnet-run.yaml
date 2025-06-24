@@ -1,0 +1,30 @@
+name: Scheduled .NET Workflow
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Runs every 5 minutes
+  workflow_dispatch:       # Optional manual trigger
+
+jobs:
+  scheduled-task:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Ensure Git is installed
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git
+          git --version
+
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x' # Adjust to match your target SDK
+
+      - name: Print current directory and checked-out branch
+        run: |
+          echo "Working Directory: $(pwd)"
+          echo "Current Branch: $(git rev-parse --abbrev-ref HEAD)"
