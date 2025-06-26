@@ -32,4 +32,4 @@ jobs:
       - name: Run Cocona Command
         run: |
           cd ./projects/CustomCLI/
-          dotnet run joker
+          dotnet run send-joke-to-recipient
