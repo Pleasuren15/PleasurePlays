@@ -7,9 +7,6 @@ namespace CustomCLI.Models
         [JsonPropertyName("lang")]
         public string Language { get; set; } = string.Empty;
 
-        [JsonPropertyName("error")]
-        public bool IsError { get; set; }
-
         [JsonPropertyName(nameof(Category))]  
         public string Category { get; set; } = string.Empty;
 
