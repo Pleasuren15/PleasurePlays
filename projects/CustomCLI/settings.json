@@ -1,3 +1,10 @@
 {
-  "JokerApiUrl": "https://v2.jokeapi.dev/joke/Dark?type=single"
+  "JokerApiUrl": "https://v2.jokeapi.dev/joke/Dark?type=single",
+  "Infobio": {
+    "ApiUrl": "https://api.infobip.com",
+    "ApiRequestPath": "/sms/2/text/advanced",
+    "ApiKey": "App 79a77235e7a74ad3183017c7ff4085af-bb9fbd6b-09a3-45ba-9082-23a1197292f0",
+    "Recipient": "27823982825",
+    "Sender": "447491163443"
+  }
 }
