@@ -13,11 +13,30 @@ namespace CustomCLI.Services
         public IConfiguration _configuration { get; } = configuration;
         public ILogger<InfobioService> _logger { get; } = logger;
 
-        public async Task SendJokeToRecipientAsync()
+        public Task SendJokeToRecipientEmailAsync()
         {
             try
             {
-                _logger.LogInformation("SendSMS Start: Time {time}", DateTime.UtcNow);
+                _logger.LogInformation("SendJokeToRecipientEmailAsync Start: Time {time}", DateTime.UtcNow);
+
+                return Task.FromResult("");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw new Exception("An error occurred while fetching the joke.");
+            }
+            finally
+            {
+                _logger.LogInformation("SendJokeToRecipientEmailAsync End: Time {time}", DateTime.UtcNow);
+            }
+        }
+
+        public async Task SendJokeToRecipientSmsAsync()
+        {
+            try
+            {
+                _logger.LogInformation("SendJokeToRecipientSmsAsync Start: Time {time}", DateTime.UtcNow);
                 var joke = await _jokeService.GetRandomJokeAsync();
 
                 var infoBioUrl = _configuration["Infobio:ApiUrl"];
@@ -49,7 +68,7 @@ namespace CustomCLI.Services
             }
             finally
             {
-                _logger.LogInformation("SendSMS End: Time {time}", DateTime.UtcNow);
+                _logger.LogInformation("SendJokeToRecipientSmsAsync End: Time {time}", DateTime.UtcNow);
             }
         }
     }

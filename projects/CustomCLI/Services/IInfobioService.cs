@@ -9,6 +9,12 @@
         /// Interface for a service that sends SMS messages using Infobip API.
         /// </summary>
         /// <returns></returns>
-        public Task SendJokeToRecipientAsync();
+        public Task SendJokeToRecipientSmsAsync();
+
+        /// <summary>
+        /// Interface for a service that sends Email messages using Infobip API.
+        /// </summary>
+        /// <returns></returns>
+        public Task SendJokeToRecipientEmailAsync();
     }
 }

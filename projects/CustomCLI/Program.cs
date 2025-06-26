@@ -22,7 +22,7 @@ app.AddCommand("sendJokeToRecipient", async (IInfobioService _infobioService) =>
 {
     logger.LogInformation("Get Joke Start: Time {0}", DateTime.UtcNow);
 
-    await _infobioService.SendJokeToRecipientAsync();
+    await _infobioService.SendJokeToRecipientSmsAsync();
 
     logger.LogInformation("Get Joke End: Time {0}", DateTime.UtcNow);
 });
