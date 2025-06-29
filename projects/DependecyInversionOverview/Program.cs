@@ -4,7 +4,7 @@ using DependecyInversionOverview.Models.Implementation;
 using DependecyInversionOverview.Models.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-
+using ConsoleTables;
 
 var builder = CoconaApp.CreateBuilder();
 builder.Logging.AddFilter("System.Net.Http.HttpClient", LogLevel.Warning);
@@ -17,7 +17,11 @@ var app = builder.Build();
 
 app.AddCommand("singletonServiceOverview", () =>
 {
-    Console.WriteLine("Test Singleton LifeTime");
+    Console.WriteLine("🔄 Transient a new instance is created every time the service is requested.");
+    Console.WriteLine("♻️ Scoped one instance per request (or per scope).\n\t\t The same instance is used throughout a single HTTP request, but a new one is created for each new request.");
+    Console.WriteLine("♾️ Singleton one instance for the entire application lifetime. Shared across all requests and users.");
+
+    var table = new ConsoleTable("Name", "InstanceId");
     for (int i = 0; i < 3; i++)
     {
         var testController = new TestController(
@@ -25,10 +29,10 @@ app.AddCommand("singletonServiceOverview", () =>
             app.Services.GetRequiredService<IScopedService>(),
             app.Services.GetRequiredService<ITransientService>());
 
-        testController.TestSingletonService();
+        (var name, var instanceId) = testController.TestSingletonService();
+        table.AddRow(name, instanceId);
     }
 
-    Console.WriteLine("\n\nTest Scoped LifeTime");
     for (int i = 0; i < 3; i++)
     {
         var testController = new TestController(
@@ -36,10 +40,10 @@ app.AddCommand("singletonServiceOverview", () =>
             app.Services.GetRequiredService<IScopedService>(),
             app.Services.GetRequiredService<ITransientService>());
 
-        testController.TestScopedService();
+        (var name, var instanceId) = testController.TestScopedService();
+        table.AddRow(name, instanceId);
     }
 
-    Console.WriteLine("\n\nTest Transient LifeTime");
     for (int i = 0; i < 3; i++)
     {
         var testController = new TestController(
@@ -47,8 +51,11 @@ app.AddCommand("singletonServiceOverview", () =>
             app.Services.GetRequiredService<IScopedService>(),
             app.Services.GetRequiredService<ITransientService>());
 
-        testController.TestTransientService();
+        (var name, var instanceId) = testController.TestTransientService();
+        table.AddRow(name, instanceId);
     }
+
+    table.Write();
 });
 
 

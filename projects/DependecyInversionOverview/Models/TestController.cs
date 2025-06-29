@@ -8,25 +8,19 @@ namespace DependecyInversionOverview.Models
         private readonly IScopedService _scopedService = scopedService;
         private readonly ITransientService _transientService = transientService;
 
-        public void TestSingletonService()
+        public (string name, Guid instanceId) TestSingletonService()
         {
-            Console.WriteLine("Name: {0}", _singletonService.Name);
-            //Console.WriteLine("Description: {0}", _singletonService.Description);
-            Console.WriteLine("InstanceId: {0}", _singletonService.InstanceId);
+            return (_singletonService.Name, _singletonService.InstanceId);
         }
 
-        public void TestTransientService()
+        public (string name, Guid instanceId) TestTransientService()
         {
-            Console.WriteLine("Name: {0}", _transientService.Name);
-            //Console.WriteLine("Description: {0}", _transientService.Description);
-            Console.WriteLine("InstanceId: {0}", _transientService.InstanceId);
+            return (_transientService.Name, _transientService.InstanceId);
         }
 
-        public void TestScopedService()
+        public (string name, Guid instanceId) TestScopedService()
         {
-            Console.WriteLine("Name: {0}", _scopedService.Name);
-            //Console.WriteLine("Description: {0}", _scopedService.Description);
-            Console.WriteLine("InstanceId: {0}", _scopedService.InstanceId);
+            return (_scopedService.Name, _scopedService.InstanceId);
         }
     }
 }
