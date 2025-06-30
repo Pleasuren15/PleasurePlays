@@ -1,6 +1,6 @@
 services:
   pleasure-plays-sqlserver:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: pleasure-plays-sqlserver
     environment:
       - ACCEPT_EULA=Y
@@ -10,7 +10,6 @@ services:
       - "1433:1433"
     volumes:
       - sql_data:/var/opt/mssql
-      - ./Scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
     restart: unless-stopped
 
 volumes:
