@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "EntityFramework": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

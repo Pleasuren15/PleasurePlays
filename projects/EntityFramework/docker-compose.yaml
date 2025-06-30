@@ -1,0 +1,19 @@
+services:
+  pleasure-plays-sqlserver:
+    image: mcr.microsoft.com/mssql/server
+    container_name: pleasure-plays-sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong!Passw0rd
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+      - ./Scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    restart: unless-stopped
+
+volumes:
+  sql_data:
+
+# Connection String => Server=localhost,1433;Database=YourDatabaseName;User Id=sa;Password=YourStrong!Passw0rd;

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomCLI", "projects\Custo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependecyInversionOverview", "projects\DependecyInversionOverview\DependecyInversionOverview.csproj", "{E9B47E61-52D5-4CAA-96B3-FB4473F15949}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework", "projects\EntityFramework\EntityFramework.csproj", "{DD92D925-F124-4B8B-AF06-CFE406E468F2}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PleasurePlaysDatabase", "projects\PleasurePlaysDatabase\PleasurePlaysDatabase.sqlproj", "{0D022A72-98A8-4DB2-A4AA-6E54FC059957}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,16 @@ Global
 		{E9B47E61-52D5-4CAA-96B3-FB4473F15949}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9B47E61-52D5-4CAA-96B3-FB4473F15949}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9B47E61-52D5-4CAA-96B3-FB4473F15949}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD92D925-F124-4B8B-AF06-CFE406E468F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD92D925-F124-4B8B-AF06-CFE406E468F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD92D925-F124-4B8B-AF06-CFE406E468F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD92D925-F124-4B8B-AF06-CFE406E468F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D022A72-98A8-4DB2-A4AA-6E54FC059957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D022A72-98A8-4DB2-A4AA-6E54FC059957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D022A72-98A8-4DB2-A4AA-6E54FC059957}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0D022A72-98A8-4DB2-A4AA-6E54FC059957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D022A72-98A8-4DB2-A4AA-6E54FC059957}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D022A72-98A8-4DB2-A4AA-6E54FC059957}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
