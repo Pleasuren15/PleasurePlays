@@ -1,6 +1,6 @@
 services:
   pleasure-plays-sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+    image: mcr.microsoft.com/mssql/server:2019-latest
     container_name: pleasure-plays-sqlserver
     environment:
       - ACCEPT_EULA=Y
@@ -15,4 +15,5 @@ services:
 volumes:
   sql_data:
 
-# Connection String => Server=localhost,1433;Database=YourDatabaseName;User Id=sa;Password=YourStrong!Passw0rd;
+# Connection String => Server=localhost,1433;Database=PleasurePlaysDatabase;User Id=sa;Password=YourStrong!Passw0rd;
+# docker compose -f .\projects\EntityFramework\docker-compose.yaml up -d
