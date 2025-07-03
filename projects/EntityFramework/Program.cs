@@ -1,6 +1,6 @@
 ﻿using EntityFramework.Infrastructure;
 
-internal class Program
+class Program
 {
     private static async Task Main(string[] args)
     {
@@ -9,6 +9,7 @@ internal class Program
         builder.Configuration.SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json");
         builder.Services.AddSqlServer<AppDbContext>(builder.Configuration["ConnectionStrings:PleasurePlaysDatabase"]);
+
 
         var app = builder.Build();
         await app.RunAsync();
